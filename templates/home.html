@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<section class="container">
+    <h2>Current Status</h2>
+    <table>
+        <tr>
+            <th>Temperature</th>
+            <th>Humidity</th>
+            <th>Soil Moisture</th>
+        </tr>
+        <tr>
+            <td>4°C</td>
+            <td>4%</td>
+            <td>4%</td>
+        </tr>
+    </table>
+    <p>Current threshold value for Soil Moisture: 60</p>
+    <form action="/set-threshold" method="POST">
+        <div class="division">
+           <div> 
+                <label for="threshold">Reset the threshold value:</label>
+                <input type="number" id="threshold" name="threshold" min="0" max="100" required>   
+                <button type="submit">Set</button>
+            </div>
+        </div>
+    </form>
+    <h2>Upload an Image</h2>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <label for="file-upload" class="upload-btn-wrapper">
+            <span class="btn">Choose an image</span>
+            <input type="file" id="file-upload" name="image" accept="image/*" required>
+        </label>
+        <br> <!-- Add line break to place "Predict" button below -->
+        <button type="submit">Predict</button>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<nav>
+    <ul>
+        <li><a class='Home' href="/">Home</a></li>
+    </ul>
+</nav>
+<section class="container">
+    <h2>Prediction Result</h2>
+    <p class="prediction">Predicted Class: {{ predicted_class }}</p>
+    <h2>How To Handle?</h2>
+    <p class="analysis">{{theory}}</p>
+    <p class="confidence">Confidence: {{ confidence }}%</p>
+</section>
+{% endblock %}
